@@ -1,6 +1,6 @@
 import express from 'express';
 
-const PORT = 3004;
+const PORT = process.env.PORT || 3004;
 
 // Initialise Express
 const app = express();
@@ -8,7 +8,6 @@ const app = express();
 app.set('view engine', 'ejs');
 
 app.get('/bananas', (request, response) => {
-
   const responseText = `This is a random number: ${Math.random()}`;
 
   console.log('request came in', responseText);
