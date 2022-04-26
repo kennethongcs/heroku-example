@@ -19,7 +19,7 @@ app.get('/bananas', (request, response) => {
 
   console.log('request came in', responseText);
 
-  const data = { responseText, cats };
+  const data = { responseText };
 
   response.render('bananas', data);
 });
