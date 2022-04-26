@@ -17,7 +17,10 @@
     <title>Hello, heroku world!</title>
   </head>
   <body>
-    <h1><%= responseText %></h1>
+    <h1><%= data %></h1>
+    <% cats.forEach(element => { %>
+    <p><%= element.name %></p>
+    <% }) %>
 
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
