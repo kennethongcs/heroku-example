@@ -10,13 +10,13 @@ const app = express();
 
 app.set('view engine', 'ejs');
 
+// pool.query('SELECT * FROM cats').then((result) => {
+//   const cats = result.rows;
+
+// });
 app.get('/bananas', (request, response) => {
   const responseText = `This is a random number: ${Math.random()}`;
 
-  // pool.query('SELECT * FROM cats').then((result) => {
-  //   const cats = result.rows;
-
-  // });
   console.log('request came in', responseText);
 
   const data = { responseText, cats };
