@@ -43,6 +43,6 @@ app.get('/bananas', (request, response) => {
 
     response.render('bananas', { data, cats });
   });
-
+});
 
 app.listen(PORT);
