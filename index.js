@@ -3,7 +3,6 @@ import pg from 'pg';
 
 const { Pool } = pg;
 let pgConnectionConfigs;
-const pool = new Pool(pgConnectionConfigs);
 
 const PORT = process.env.PORT || 3004;
 
@@ -25,6 +24,7 @@ if (process.env.DATABASE_URL) {
     port: 5432,
   };
 }
+const pool = new Pool(pgConnectionConfigs);
 
 // Initialise Express
 const app = express();
@@ -43,6 +43,6 @@ app.get('/bananas', (request, response) => {
 
     response.render('bananas', { data, cats });
   });
-});
+
 
 app.listen(PORT);
