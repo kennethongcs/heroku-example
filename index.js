@@ -1,4 +1,7 @@
 import express from 'express';
+import pg from 'pg';
+
+const { pool } = pg;
 
 const PORT = process.env.PORT || 3004;
 
@@ -10,11 +13,15 @@ app.set('view engine', 'ejs');
 app.get('/bananas', (request, response) => {
   const responseText = `This is a random number: ${Math.random()}`;
 
-  console.log('request came in', responseText);
+  pool.query('SELECT * FROM cats').then((result) => {
+    const cats = result.rows;
 
-  const data = { responseText };
+    console.log('request came in', responseText);
 
-  response.render('bananas', data);
+    const data = { responseText, cats };
+
+    response.render('bananas', data);
+  });
 });
 
 app.listen(PORT);
